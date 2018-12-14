@@ -86,7 +86,9 @@
 #endif
 #if defined __WIN32__ || defined _WIN32 || defined WIN32 /* || defined __MSDOS__ */
   #if !defined alloca
-	#define alloca(n)   _alloca(n)
+    #if !__STDC__
+      #define alloca _alloca
+    #endif
   #endif
 #endif
 
